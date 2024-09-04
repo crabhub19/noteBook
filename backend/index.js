@@ -1,6 +1,9 @@
-const connectToDatabase = require('./db');
+//const connectToDatabase = require('./db');
+const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
+//connectToDatabase();
+
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB connected"))
     .catch(err => console.log(err));
