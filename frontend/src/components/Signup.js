@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 export default function Signup(props) {
-  const localHost = "https://notebook-frontend-1t22.onrender.com";
+  const localHost = "https://notebook-backend-peef.onrender.com";
   let navigate = useNavigate();
   const [state, setstate] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState(false);
