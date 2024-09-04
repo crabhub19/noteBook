@@ -79,7 +79,7 @@ export default function UpdateNote(props) {
                     </select>
                   </div>
 
-                  <div className="flex justify-between">
+                  <div className="flex justify-between gap-8">
                     <button
                       type="submit"
                       onClick={() => setOpen(false)}
