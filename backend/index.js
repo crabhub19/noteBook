@@ -11,7 +11,12 @@ connectToDatabase();
 const app = express()
 const port = process.env.PORT || 4000;
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: 'https://notebook-frontend-84bd.onrender.com'
+}));
+app.options('*', cors());
+
 app.use(express.json());
 // avialble routes
 app.use('/api/auth',require('./routes/auth'));
