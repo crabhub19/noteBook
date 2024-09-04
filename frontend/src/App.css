@@ -1,0 +1,12 @@
+.display-none{
+  @apply hidden;
+}
+section{
+  @apply pt-20 pb-10 min-h-screen dark:bg-black dark:text-white bg-white;
+}
+
+
+*{
+  @apply transition duration-500 ;
+  @apply font-cooljazz
+}
