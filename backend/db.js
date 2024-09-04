@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongooseUrl = 'mongodb://103.112.53.16/32:27017'
+const mongooseUrl = 'mongodb+srv://crab:0000@notebookdb.w11im.mongodb.net/?retryWrites=true&w=majority&appName=noteBookDB'
 async function connectToDatabase() {
   try {
     await mongoose.connect(mongooseUrl, {
