@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongooseUrl = 'mongodb://atlas-sql-66d8352d6b017a5126753efb-b5ugo.a.query.mongodb.net/sample_mflix?ssl=true&authSource=admin/sample_mflix'
+const mongooseUrl = 'mongodb://103.112.53.16/32'
 async function connectToDatabase() {
   try {
     await mongoose.connect(mongooseUrl, {
