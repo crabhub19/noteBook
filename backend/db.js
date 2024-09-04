@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongooseUrl = 'mongodb://103.112.53.16/32'
+const mongooseUrl = 'mongodb://103.112.53.16/32:27017'
 async function connectToDatabase() {
   try {
     await mongoose.connect(mongooseUrl, {
