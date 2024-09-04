@@ -25,7 +25,7 @@ export default function Login(props) {
   }, [props.darkMode]);
 
   //api call
-  const localHost = "http://localhost:5000";
+  const localHost = "https://notebook-frontend-1t22.onrender.com";
   let navigate = useNavigate();
   const [state, setstate] = useState({ email: "", password: "" });
   const [email, setEmail] = useState(false);
