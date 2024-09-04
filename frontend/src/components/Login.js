@@ -72,7 +72,7 @@ export default function Login(props) {
   };
   return (
     <>
-      <section>
+      <section className="flex items-center">
         {/*
           This example requires updating your template:
   
