@@ -14,6 +14,8 @@ import AddNote from './components/AddNote';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Logout from './components/Logout';
+import Footer from './components/Footer';
+
 function App() {
 
   const location = useLocation();
@@ -117,6 +119,7 @@ function App() {
           </>
         )}
       </Routes>
+      <Footer></Footer>
     </NoteState>
     </>
   );
