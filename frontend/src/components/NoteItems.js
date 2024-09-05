@@ -3,7 +3,7 @@ import noteContext from '../context/noteContext';
 
 export default function NoteItems(props) {
   let { note, getUpdateId} = props;
-  let { title, description, tag, date, id} = props.note;
+  let { title, description, tag, date, _id} = props.note;
   const contextOfNote = useContext(noteContext);
   let {deleteNote} = contextOfNote;
 
@@ -41,7 +41,7 @@ export default function NoteItems(props) {
                     strokeWidth={1.5}
                     stroke="currentColor"
                     className="size-6 hover:scale-125 cursor-pointer"
-                    onClick={()=>{deleteNote(id)}}
+                    onClick={()=>{deleteNote(_id)}}
                   >
                     <path
                       strokeLinecap="round"
