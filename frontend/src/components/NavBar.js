@@ -1,6 +1,6 @@
 import { Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useEffect,useState } from 'react';
+import { useEffect,useState,useRef } from 'react';
 import { NavLink,useLocation } from 'react-router-dom';
 import noteBookLogo from '../assets/image/builtIn/noteBookLogo.png';
 import noteBookLogoDark from '../assets/image/builtIn/noteBookLogoDark.png';
@@ -17,7 +17,7 @@ export default function NavBar(props) {
   useEffect(() => {
     props.darkMode ? setLogo(noteBookLogoDark):setLogo(noteBookLogo)
   },[props.darkMode])
-
+  const closeMobileMenu = useRef(null);
 
   const pathLocation = useLocation().pathname;
   let aditionalNavigation = localStorage.getItem('authToken')?[
@@ -40,7 +40,7 @@ export default function NavBar(props) {
         <div className="relative flex lg:py-0 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
             {/* Mobile menu button*/}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-black dark:text-white hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-black dark:text-white hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" ref={closeMobileMenu}>
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
               <Bars3Icon aria-hidden="true" className="block h-6 w-6 group-data-[open]:hidden" />
@@ -108,6 +108,7 @@ export default function NavBar(props) {
                 item.current ? 'bg-gray-900 text-white dark:bg-gray-500' : 'text-black hover:bg-gray-700 hover:text-white dark:text-white dark:hover:bg-gray-200 dark:hover:text-black',
                 'block px-3 py-2 hover:tracking-widest',
               )}
+              onClick={() => closeMobileMenu.current.click()}
             >
               {item.name}
             </NavLink>
