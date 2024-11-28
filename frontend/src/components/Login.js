@@ -30,8 +30,10 @@ export default function Login(props) {
   const [state, setstate] = useState({ email: "", password: "" });
   const [email, setEmail] = useState(false);
   const [password, setPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const signIn = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch(`${localHost}/api/auth/login`, {
         method: "POST",
@@ -66,6 +68,7 @@ export default function Login(props) {
     } catch (error) {
       console.error("Error:", error);
     }
+    setLoading(false);
   };
   const onchange = (e) => {
     setstate({ ...state, [e.target.name]: e.target.value });
@@ -188,7 +191,7 @@ export default function Login(props) {
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-indigo-600 dark:bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 dark:hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:focus-visible:outline-green-600 hover:tracking-widest"
                 >
-                  Sign in
+                  {loading ? "Loading..." : "Sign in"}
                 </button>
               </div>
             </form>

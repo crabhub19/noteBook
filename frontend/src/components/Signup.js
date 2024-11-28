@@ -5,8 +5,10 @@ export default function Signup(props) {
   let navigate = useNavigate();
   const [state, setstate] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const signup = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch(`${localHost}/api/auth/create`, {
         method: "POST",
@@ -35,6 +37,7 @@ export default function Signup(props) {
     } catch (error) {
       console.error("Error:", error);
     }
+    setLoading(false);
   };
   const onchange = (e) => {
     setstate({ ...state, [e.target.name]: e.target.value });
@@ -167,7 +170,7 @@ export default function Signup(props) {
                 type="submit"
                 className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 hover:tracking-widest"
               >
-                Create an account
+                { loading ? "Loading..." : "Create an account"}
               </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already have an account?{" "}
